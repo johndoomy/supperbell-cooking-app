@@ -1,0 +1,16 @@
+import EntreesSaladsSides from "./EntreesSaladsSides"
+
+const FamilyMeal = ({ deleteIngredient, updateRecipe, selectedRecipe }) => {
+  return (
+    <div>
+        {selectedRecipe.ingredients.map((ingredient, index) => (
+            <div key={index} className="recipeComponent">
+                <div className="componentTitleContainer"><h3 key={index} className="recipeComponentName">{ingredient.name}</h3><span className="componentCount">{ingredient.amount} per order</span></div>
+                <EntreesSaladsSides familyRecipe={selectedRecipe} deleteIngredient={deleteIngredient} index={index} updateRecipe={updateRecipe} selectedRecipe={ingredient} />
+            </div>
+        ))}
+    </div>
+  )
+}
+
+export default FamilyMeal
