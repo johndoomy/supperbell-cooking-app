@@ -32,6 +32,9 @@ header {
 }
 
 #appTitle {
+  height: 30px;
+  font-size: 30px;
+  
   padding-left: 10px;
 }
 
@@ -389,23 +392,40 @@ cursor: pointer;
 }
 
 .ingredientRight {
+  height: auto;
+  width: auto;
   margin-right: 10px;
   float: right;
   display: flex;
+}
+
+.ingredientChevronLeft {
+  color: white;
+  font-size: 18px;
+  float: right;
+}
+
+.ingredientChevronLeft:hover {
+  /* background-color: white; */
+  border-radius: 50%;
+}
+
+ingredientChevronDown {
+  float: right;
 }
 
 .componentCount {
   font-size: 16px;
   text-decoration: underline;
   padding-top: 29px;
-  margin-right: 10px;
+  margin-right: 25px;
   float: right;
   display: flex;
 }
 
-.updatedNumber {
+/* .updatedNumber {
   padding: 5px;
-}
+} */
 
 .deleteIngredient {
   margin-left: 6px;
