@@ -399,19 +399,13 @@ cursor: pointer;
   display: flex;
 }
 
-.ingredientChevronLeft {
-  color: white;
+.ingredientChevronUp, .ingredientChevronDown {
   font-size: 18px;
   float: right;
 }
 
 .ingredientChevronLeft:hover {
-  /* background-color: white; */
   border-radius: 50%;
-}
-
-ingredientChevronDown {
-  float: right;
 }
 
 .componentCount {

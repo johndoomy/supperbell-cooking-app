@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import UpdatedNumber from "./UpdatedNumber"
 import DeleteIngredientButton from "./DeleteIngredientButton"
-import { BsChevronLeft } from "react-icons/bs"
+import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
 
 const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
@@ -41,14 +41,22 @@ const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeInde
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         ref={ingredientRef}
-        // onClick={() => toggleChild()}
+        onClick={handleClickOnChevron} 
         key={recipeIndex}
         className="ingredient">
         <span>{ingredient.name}</span>
         {!ingredientDropdown ?
-            <BsChevronLeft onClick={handleClickOnChevron} style={isHovering && { color: "black"}} className="ingredientChevronLeft" />
+            <BsChevronDown 
+                // onClick={handleClickOnChevron}
+                style={isHovering && { color: "black"}} 
+                className="ingredientChevronDown" 
+            /> 
             :
-            <BsChevronDown style={isHovering && { color: "black"}} className="ingredientChevronDown" onClick={handleClickOnChevron} />            
+            <BsChevronUp 
+                // onClick={handleClickOnChevron} 
+                style={isHovering && { color: "black"}} 
+                className="ingredientChevronUp" 
+            />   
         }
         
         
@@ -61,8 +69,12 @@ const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeInde
 
         {ingredientDropdown &&
             <div className="subRecipe">
+                <div>Yeild: 50 orders</div>
+                <div>Portion Size: 2 fl oz</div>
                 <ul>
-                    <li>ingredient</li>
+                    <li>ingredient1</li>
+                    <li>ingredient2</li>
+                    <li>ingredient3</li>
                 </ul>
                 
             </div>      
