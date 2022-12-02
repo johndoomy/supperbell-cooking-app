@@ -3,8 +3,10 @@ import UpdatedNumber from "./UpdatedNumber"
 import DeleteIngredientButton from "./DeleteIngredientButton"
 import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
+import SubRecipeCreateButton from "./SubRecipeCreateButton"
+import SubRecipe from "./SubRecipe"
 
-const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
+const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
     const ingredientRef = useRef()
 
     const [isHovering, setIsHovering] = useState(false)
@@ -41,20 +43,18 @@ const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeInde
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         ref={ingredientRef}
-        onClick={handleClickOnChevron} 
+        // onClick={handleClickOnChevron} 
         key={recipeIndex}
         className="ingredient">
         <span>{ingredient.name}</span>
         {!ingredientDropdown ?
             <BsChevronDown 
-                // onClick={handleClickOnChevron}
-                style={isHovering && { color: "black"}} 
+                onClick={handleClickOnChevron}
                 className="ingredientChevronDown" 
             /> 
             :
             <BsChevronUp 
-                // onClick={handleClickOnChevron} 
-                style={isHovering && { color: "black"}} 
+                onClick={handleClickOnChevron} 
                 className="ingredientChevronUp" 
             />   
         }
@@ -67,17 +67,28 @@ const IngredientItem = ({ deleteIngredient, ingredient, familyRecipe, recipeInde
         </div>
         
 
-        {ingredientDropdown &&
-            <div className="subRecipe">
-                <div>Yeild: 50 orders</div>
-                <div>Portion Size: 2 fl oz</div>
-                <ul>
-                    <li>ingredient1</li>
-                    <li>ingredient2</li>
-                    <li>ingredient3</li>
-                </ul>
+        {(ingredientDropdown) && (
+            (ingredient.hasSubRecipe) ?
+                <SubRecipe />
+            :
+                <SubRecipeCreateButton
+                    selectModal={selectModal}
+                    ingredient={ingredient} 
+                    familyRecipe={familyRecipe} 
+                    recipeIndex={recipeIndex} 
+                    selectedRecipe={selectedRecipe} 
+                />
+            )
+            // <div className="subRecipe">
+            //     <div>Yeild: 50 orders</div>
+            //     <div>Portion Size: 2 fl oz</div>
+            //     <ul>
+            //         <li>ingredient1</li>
+            //         <li>ingredient2</li>
+            //         <li>ingredient3</li>
+            //     </ul>
                 
-            </div>      
+            // </div>
         }
              
     </li>

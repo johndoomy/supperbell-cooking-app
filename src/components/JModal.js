@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react"
 import RecipeForm from "./RecipeForm"
+import SubRecipeForm from "./SubRecipeForm"
 import UpdateNumbersForm from "./UpdateNumbersForm"
 
 const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }) => {
@@ -55,8 +56,27 @@ const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }
     <div className="modal">
         <div ref={modalRef} className={isExtended ? "modal-content extended" : "modal-content"}>
             <span onClick={() => {handleClose1()}} className="close">&times;</span>
-            {(modalState === "recipe") ? <RecipeForm inputs={inputs} handleClose1={handleClose1} handleChange={handleChange} handleSubmit={handleSubmit} toggleExtended={toggleExtended} addRecipe={addRecipe} handleClose={handleClose} /> :
-                (modalState === "updateNumbers") ? <UpdateNumbersForm recipeKey={recipeKey} setMultiplier={setMultiplier}  /> : console.log("modal error")
+            {(modalState === "recipe") ? 
+              <RecipeForm 
+                inputs={inputs}
+                handleClose1={handleClose1} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                toggleExtended={toggleExtended} 
+                addRecipe={addRecipe} 
+                handleClose={handleClose} 
+              /> 
+              :
+              (modalState === "updateNumbers") ? 
+                <UpdateNumbersForm 
+                  recipeKey={recipeKey} 
+                  setMultiplier={setMultiplier}  
+                /> 
+              :
+              (modalState === "subRecipe") ?
+                <SubRecipeForm />
+              :
+              console.log("modal error")
             }
         </div>  
     </div>

@@ -502,6 +502,19 @@ cursor: pointer;
   cursor: pointer;
 }
 
+.addSubRecipeButtonContainer {
+  text-align: center;
+}
+
+.addSubRecipeButton {
+  font-size: 16px;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: #1a73e8;
+}
+
 @media only screen and (max-width: 620px) {
   .sidebar {
     z-index: 0;
@@ -531,6 +544,10 @@ cursor: pointer;
 
   .showRecipeModal {
     font-size: 18px;
+  }
+
+  .ingredientForm {
+    text-align: center;
   }
 
   .modal-content {

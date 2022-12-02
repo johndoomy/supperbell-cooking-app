@@ -11,9 +11,28 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
 
   return (
     <div id="content">
-        <Sidebar save={save} isExpanded={isExpanded} selectModal={selectModal} selectRecipe={selectRecipe} selectedRecipe={selectedRecipe} toggleNav={toggleNav} recipes={recipes} />
-        <Main isExpanded={isExpanded} deleteIngredient={deleteIngredient} updateRecipe={updateRecipe} selectModal={selectModal} deleteRecipe={deleteRecipe} selectedRecipe={selectedRecipe} />
-        <JModal recipeKey={selectedRecipe && selectedRecipe.key} setMultiplier={setMultiplier} modalState={modalState} addRecipe={addRecipe} />
+        <Sidebar 
+          save={save} 
+          isExpanded={isExpanded} 
+          selectModal={selectModal} 
+          selectRecipe={selectRecipe} 
+          selectedRecipe={selectedRecipe} 
+          toggleNav={toggleNav} 
+          recipes={recipes} 
+        />
+        <Main 
+          isExpanded={isExpanded} 
+          deleteIngredient={deleteIngredient} 
+          updateRecipe={updateRecipe} 
+          selectModal={selectModal} 
+          deleteRecipe={deleteRecipe} 
+          selectedRecipe={selectedRecipe} 
+        />
+        <JModal 
+          recipeKey={selectedRecipe && selectedRecipe.key} 
+          setMultiplier={setMultiplier} 
+          modalState={modalState} 
+          addRecipe={addRecipe} />
     </div>
   )
 }
