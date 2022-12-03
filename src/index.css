@@ -246,7 +246,7 @@ ul.listOfIngredients {
   border: none;
   border-radius: 8px;
   width: 500px;
-  height: 180px;
+  height: auto;
 }
 
 .extended {
@@ -255,6 +255,7 @@ ul.listOfIngredients {
 
 .cancelCreate {
   margin-top: 1px;
+  padding-bottom: 10px;
 }
 
 .cancelText {
@@ -279,7 +280,8 @@ ul.listOfIngredients {
 }
 
 .updateCancel {
-  margin-top: 55px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .createText:hover, .cancelText:hover {
@@ -508,12 +510,17 @@ cursor: pointer;
 
 .addSubRecipeButton {
   font-size: 16px;
+  margin-top: 16px;
   padding: 6px 16px;
   border: none;
   border-radius: 15px;
   color: white;
   background-color: #1a73e8;
 }
+
+/* .subRecipeIngredientInput {
+
+} */
 
 @media only screen and (max-width: 620px) {
   .sidebar {

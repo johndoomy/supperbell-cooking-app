@@ -21,9 +21,8 @@ const UpdateNumbersForm = ({ recipeKey, setMultiplier }) => {
               type="tel"
               onChange={handleChange}
             />
-            <p> </p>
-            <p> </p>
-            <div className="cancelCreate updateCancel">
+        </div>
+        <div className="cancelCreate updateCancel">
                 <span onClick={() => {
                   setMultiplier(recipeKey, multiplierInput)
                   document.querySelector(".modal").style.display = "none"
@@ -34,7 +33,6 @@ const UpdateNumbersForm = ({ recipeKey, setMultiplier }) => {
                 </span>
                 <span onClick={() => {document.querySelector(".modal").style.display = "none"}} className="cancelText">Cancel</span>
             </div>
-        </div>
     </div>
   )
 }

@@ -23,18 +23,7 @@ const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }
       document.querySelector("#recipeInputText").value = ""
       inputs.type = "entree"
       inputs.name = ""
-      toggleExtended("none")
       return inputs
-  }
-
-  const [isExtended, setIsExtended] = useState(false)
-
-  const toggleExtended = (string) => {
-    if (string === "family meal") {
-      setIsExtended(true)
-    } else {
-      setIsExtended(false)
-    }
   }
 
   const modalRef = useRef()
@@ -54,15 +43,14 @@ const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }
     
   return (
     <div className="modal">
-        <div ref={modalRef} className={isExtended ? "modal-content extended" : "modal-content"}>
+        <div ref={modalRef} id="modalContent" className="modal-content">
             <span onClick={() => {handleClose1()}} className="close">&times;</span>
             {(modalState === "recipe") ? 
               <RecipeForm 
                 inputs={inputs}
                 handleClose1={handleClose1} 
                 handleChange={handleChange} 
-                handleSubmit={handleSubmit} 
-                toggleExtended={toggleExtended} 
+                handleSubmit={handleSubmit}
                 addRecipe={addRecipe} 
                 handleClose={handleClose} 
               /> 

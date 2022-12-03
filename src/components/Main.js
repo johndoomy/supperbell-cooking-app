@@ -2,7 +2,6 @@ import FamilyMeal from "./FamilyMeal"
 import EntreesSaladsSides from "./EntreesSaladsSides"
 import TitleRight from "./TitleRight"
 import CheckListImage from "./CheckListImage"
-import { useEffect } from "react"
 
 const Main = ({ isExpanded, deleteIngredient, updateRecipe, deleteRecipe, selectedRecipe, selectModal }) => {
   // useEffect(() => {

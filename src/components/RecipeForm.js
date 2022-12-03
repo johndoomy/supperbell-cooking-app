@@ -1,14 +1,4 @@
-import { useEffect } from "react"
-
 const RecipeForm = ({ inputs, handleChange, handleSubmit, handleClose1, toggleExtended, addRecipe }) => {
-
-
-
-    useEffect(() => {
-        
-        toggleExtended(inputs.type) //says missing dependency but works perfectly
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [inputs.type])
 
   return (
     <div>

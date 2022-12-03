@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import UpdatedNumber from "./UpdatedNumber"
-import DeleteIngredientButton from "./DeleteIngredientButton"
+// import DeleteIngredientButton from "./DeleteIngredientButton"
 import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
 import SubRecipeCreateButton from "./SubRecipeCreateButton"
@@ -8,16 +8,6 @@ import SubRecipe from "./SubRecipe"
 
 const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
     const ingredientRef = useRef()
-
-    const [isHovering, setIsHovering] = useState(false)
-    
-    const handleMouseOver = () => {
-        setIsHovering(true)
-    }
-
-    const handleMouseOut = () => {
-        setIsHovering(false)
-    }
 
     const [ingredientDropdown, setIngredientDropdown] = useState(false)
 
@@ -40,10 +30,7 @@ const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecip
 
   return (
     <li
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
         ref={ingredientRef}
-        // onClick={handleClickOnChevron} 
         key={recipeIndex}
         className="ingredient">
         <span>{ingredient.name}</span>
