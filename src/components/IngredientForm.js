@@ -14,7 +14,7 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
         event.preventDefault()
         inputs.key = new Date().valueOf()
         updateRecipe(((familyKey !== undefined) ? familyKey : selectedRecipe.key), inputs, index)
-        setInputs({unit: "each"})
+        setInputs(() => ({unit: "each"}))
         (window.innerWidth > 620) && document.querySelectorAll(".ingredientInputText")[0].focus()
     }
 
@@ -35,7 +35,7 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
             />
             <input
                 autoComplete="off"
-                required
+                required={(inputs.unit === "garnish" || inputs.unit === "to taste") ? false : true}
                 value={inputs.amount || ""}
                 onChange={handleChange}
                 type="tel"
@@ -48,10 +48,19 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
                 <option value="each">each</option>
                 <option value="c">cups</option>
                 <option value="qt">quarts</option>
-                <option value="lb">pounds</option>
                 <option value="fl oz">fl oz (volume)</option>
-                <option value="oz">oz (weight)</option>
                 <option value="tbsp">tablespoons</option>
+                <option value="tsp">teapoons</option>
+                <option value="oz">oz (weight)</option>
+                <option value="lb">pounds</option>
+                <option value="pt">pints</option>
+                <option value="gal">gallons</option>
+                <option value="g">grams</option>
+                <option value="kg">kilograms</option>
+                <option value="ml">milliliters</option>
+                <option value="l">liters</option>
+                <option value="garnish">garnish</option>
+                <option value="to taste">to taste</option>
             </select>
 
 

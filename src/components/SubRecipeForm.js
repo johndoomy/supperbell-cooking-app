@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-const SubRecipeForm = () => {
-    const [inputs, setInputs] = useState({type: "subRecipe"})
+const SubRecipeForm = ({ arrayLocation, updateRecipe }) => {
+    const [inputs, setInputs] = useState({hasSubRecipe: true})
 
     const handleChange = event => {
         const name = event.target.name
@@ -12,7 +12,9 @@ const SubRecipeForm = () => {
     const handleSubmit = event => {
         event.preventDefault()
         inputs.key = new Date().valueOf()
-        console.log(inputs)
+        inputs.ingredients = ingredientsArray
+        inputs.subIndex = arrayLocation.subIngredientIndex
+        updateRecipe(arrayLocation.recipeKey, inputs, arrayLocation.ingredientIndex)
     }
 
     const [arrayLength, setArrayLength] = useState(1)
@@ -24,29 +26,66 @@ const SubRecipeForm = () => {
     }
 
     let array = [...Array(arrayLength)].map((_, i) => i)
+
+    let ingredientsArray = array.map((item, index) => {
+        let itemName = ""
+        let itemAmount = ""
+        let itemUnit = ""
+        if (document.getElementById(`ingredientName${index}`) !== null) {itemName = document.getElementById(`ingredientName${index}`).value}
+        if (document.getElementById(`ingredientAmount${index}`) !== null) {itemAmount = document.getElementById(`ingredientAmount${index}`).value}
+        if (document.getElementById(`ingredientUnit${index}`) !== null) {itemUnit = document.getElementById(`ingredientUnit${index}`).value}
+        item = {
+            name: itemName,
+            amount: itemAmount,
+            unit: itemUnit
+        }
+        return item
+    })
+
+
     
   return (
     <div className="formContainer subRecipeForm">
         <form onSubmit={handleSubmit}>
             <p>Sub Recipe Ingredients:</p>
             {array.map((item, index) => 
-                <div>
+                <div key={"subrecipeInput" + index}>
                     <input 
                         key={index}
                         className="subRecipeIngredientInput" 
                         type="text"
                         name={`ingredientName${index}`}
+                        id={`ingredientName${index}`}
                         onChange={handleChange}
+                        required
+                        autoComplete="off"
                     />
-                    <input onChange={handleChange} name={`ingredientAmount${index}`} size={3} type="tel" placeholder="#" />
-                    <select onChange={handleChange} name={`ingredientUnit${index}`} id="">
+                    <input
+                        onChange={handleChange}
+                        name={`ingredientAmount${index}`}
+                        id={`ingredientAmount${index}`}
+                        size={3}
+                        type="tel"
+                        placeholder="#"
+                        autoComplete="off"
+                    />
+                    <select onChange={handleChange} name={`ingredientUnit${index}`} id={`ingredientUnit${index}`} >
                         <option value="each">each</option>
                         <option value="c">cups</option>
                         <option value="qt">quarts</option>
-                        <option value="lb">pounds</option>
                         <option value="fl oz">fl oz (volume)</option>
-                        <option value="oz">oz (weight)</option>
                         <option value="tbsp">tablespoons</option>
+                        <option value="tsp">teapoons</option>
+                        <option value="oz">oz (weight)</option>
+                        <option value="lb">pounds</option>
+                        <option value="pt">pints</option>
+                        <option value="gal">gallons</option>
+                        <option value="g">grams</option>
+                        <option value="kg">kilograms</option>
+                        <option value="ml">milliliters</option>
+                        <option value="l">liters</option>
+                        <option value="garnish">garnish</option>
+                        <option value="to taste">to taste</option>
                     </select>
                 </div>
             )}
@@ -55,7 +94,14 @@ const SubRecipeForm = () => {
 
             <div>
                 <p>Directions:</p>
-                <textarea name="" id="" cols="46" rows="10"></textarea>
+                <textarea 
+                    required
+                    onChange={handleChange}
+                    name="directions"
+                    id="directions"
+                    cols="46"
+                    rows="10">
+                </textarea>
             </div>
             
             <input type="submit" value="Create Sub Recipe" />

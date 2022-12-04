@@ -129,7 +129,10 @@ function App() {
   }
 
   const updateRecipe = (recipeKey, ingredientObj, ingredientIndex) => {
-    if (ingredientIndex !== undefined) {
+    if (ingredientObj.hasSubRecipe) {
+      console.log("adding subrecipe")
+      addSubRecipe(recipeKey, ingredientObj, ingredientIndex)
+    } else if (ingredientIndex !== undefined) {
       let newRecipes = recipes.map(recipe => {
         if (recipe.key === recipeKey) {
           console.log(recipe)
@@ -151,7 +154,37 @@ function App() {
       setRecipes(newRecipes)
       save(newRecipes)
     }
-    
+  }
+
+  const addSubRecipe = (recipeKey, ingredientObj, ingredientIndex) => {
+    if (ingredientIndex !== undefined) {
+      let newRecipes = recipes.map(recipe => {
+        if (recipe.key === recipeKey) {
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].ingredients = ingredientObj.ingredients
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].hasSubRecipe = true
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].directions = ingredientObj.directions
+          console.log(recipe)
+          return recipe
+        } else {
+          return recipe
+        }
+      })
+      setRecipes(newRecipes)
+      save(newRecipes)
+    } else {
+      let newRecipes = recipes.map(recipe => {
+        if (recipe.key === recipeKey) {
+          recipe.ingredients[ingredientObj.subIndex].ingredients =ingredientObj.ingredients
+          recipe.ingredients[ingredientObj.subIndex].hasSubRecipe = true
+          recipe.ingredients[ingredientObj.subIndex].directions = ingredientObj.directions
+          return recipe
+        } else {
+          return recipe
+        }
+      })
+      setRecipes(newRecipes)
+      save(newRecipes)
+    }
   }
 
   const addRecipe = (recipeInputs) => {

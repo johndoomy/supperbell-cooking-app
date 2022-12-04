@@ -3,7 +3,7 @@ import RecipeForm from "./RecipeForm"
 import SubRecipeForm from "./SubRecipeForm"
 import UpdateNumbersForm from "./UpdateNumbersForm"
 
-const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }) => {
+const JModal = ({ arrayLocation, updateRecipe, recipeKey, setMultiplier, modalState, addRecipe, handleClose }) => {
   const [inputs, setInputs] = useState({type: "entree", amount1: 1, amount2: 1, amount3: 1})
 
   const handleChange = event => {
@@ -20,7 +20,7 @@ const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }
 
   const handleClose1 = () => {
       document.querySelector(".modal").style.display = "none"
-      document.querySelector("#recipeInputText").value = ""
+      document.querySelector("#recipeInputText") && (document.querySelector("#recipeInputText").value = "")
       inputs.type = "entree"
       inputs.name = ""
       return inputs
@@ -62,7 +62,7 @@ const JModal = ({ recipeKey, setMultiplier, modalState, addRecipe, handleClose }
                 /> 
               :
               (modalState === "subRecipe") ?
-                <SubRecipeForm />
+                <SubRecipeForm arrayLocation={arrayLocation} updateRecipe={updateRecipe} />
               :
               console.log("modal error")
             }

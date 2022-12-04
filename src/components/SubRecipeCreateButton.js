@@ -1,17 +1,15 @@
-const SubRecipeCreateButton = ({ selectModal, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
+const SubRecipeCreateButton = ({ familyKey, index, arrayLocationSettings, selectModal, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
   return (
-    <div className="addSubRecipeButtonContainer">
         <input 
             className="addSubRecipeButton" 
             onClick={() => {
+                arrayLocationSettings(((familyKey !== undefined) ? familyKey : selectedRecipe.key), index, recipeIndex)
                 selectModal("subRecipe") 
                 document.querySelector(".modal").style.display = "block"
             }} 
             type="button" 
             value="Add Sub Recipe" 
-        />
-    </div>
-    
+          />
   )
 }
 

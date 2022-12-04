@@ -1,9 +1,9 @@
 const DeleteIngredientButton = ({ deleteIngredient, recipeKey, ingredientKey, familyKey }) => {
 
   return (
-    <div className="deleteIngredient" onClick={() => deleteIngredient(recipeKey, ingredientKey, familyKey)}>
+    <span className="deleteIngredient" onClick={() => deleteIngredient(recipeKey, ingredientKey, familyKey)}>
         Delete
-    </div>
+    </span>
   )
 }
 

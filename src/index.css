@@ -45,11 +45,11 @@ header {
   z-index: 0;
   top: 120;
   left: 0;
-  background-color: white;
+  /* background-color: transparent; */
   overflow-x: hidden;
   overflow-y: hidden;
   transition: 0.3s;
-  padding-top: 15px;
+  padding-top: 24px;
   transform: translateX(-100%);
 
 }
@@ -424,6 +424,7 @@ cursor: pointer;
 } */
 
 .deleteIngredient {
+  width: auto;
   margin-left: 6px;
   background-color: rgb(240, 52, 52);
   border-radius: 25px;
@@ -504,8 +505,11 @@ cursor: pointer;
   cursor: pointer;
 }
 
-.addSubRecipeButtonContainer {
+
+
+.buttonContainer {
   text-align: center;
+  /* justify-content: space-between; */
 }
 
 .addSubRecipeButton {
@@ -524,6 +528,7 @@ cursor: pointer;
 
 @media only screen and (max-width: 620px) {
   .sidebar {
+    background-color: white;
     z-index: 0;
     padding-top: 15px;
     transition: .2s;

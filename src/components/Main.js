@@ -3,7 +3,7 @@ import EntreesSaladsSides from "./EntreesSaladsSides"
 import TitleRight from "./TitleRight"
 import CheckListImage from "./CheckListImage"
 
-const Main = ({ isExpanded, deleteIngredient, updateRecipe, deleteRecipe, selectedRecipe, selectModal }) => {
+const Main = ({ arrayLocationSettings, isExpanded, deleteIngredient, updateRecipe, deleteRecipe, selectedRecipe, selectModal }) => {
   // useEffect(() => {
   //   window.scrollTo(0, 0)
   // })
@@ -36,12 +36,15 @@ const Main = ({ isExpanded, deleteIngredient, updateRecipe, deleteRecipe, select
       </div>}
       {selectedRecipe && (selectedRecipe.type === "family meal" ? 
         <FamilyMeal
+          arrayLocationSettings={arrayLocationSettings}
+          selectModal={selectModal}
           deleteIngredient={deleteIngredient} 
           updateRecipe={updateRecipe} 
           selectedRecipe={selectedRecipe} 
         /> 
         : 
-        <EntreesSaladsSides 
+        <EntreesSaladsSides
+          arrayLocationSettings={arrayLocationSettings}
           selectModal={selectModal}
           deleteIngredient={deleteIngredient} 
           updateRecipe={updateRecipe} 

@@ -9,6 +9,11 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
     setModal(modalType)
   }
 
+  const [arrayLocation, setArrayLocation] = useState({})
+  const arrayLocationSettings = (key, index, subIndex) => {
+    setArrayLocation({recipeKey: key, ingredientIndex: index, subIngredientIndex: subIndex})
+  }
+
   return (
     <div id="content">
         <Sidebar 
@@ -20,7 +25,8 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
           toggleNav={toggleNav} 
           recipes={recipes} 
         />
-        <Main 
+        <Main
+          arrayLocationSettings={arrayLocationSettings}
           isExpanded={isExpanded} 
           deleteIngredient={deleteIngredient} 
           updateRecipe={updateRecipe} 
@@ -28,7 +34,9 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
           deleteRecipe={deleteRecipe} 
           selectedRecipe={selectedRecipe} 
         />
-        <JModal 
+        <JModal
+          arrayLocation={arrayLocation}
+          updateRecipe={updateRecipe}
           recipeKey={selectedRecipe && selectedRecipe.key} 
           setMultiplier={setMultiplier} 
           modalState={modalState} 

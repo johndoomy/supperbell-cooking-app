@@ -1,12 +1,12 @@
 import { useState, useRef } from "react"
 import UpdatedNumber from "./UpdatedNumber"
-// import DeleteIngredientButton from "./DeleteIngredientButton"
+import DeleteIngredientButton from "./DeleteIngredientButton"
 import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
 import SubRecipeCreateButton from "./SubRecipeCreateButton"
 import SubRecipe from "./SubRecipe"
 
-const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
+const IngredientItem = ({ familyKey, index, arrayLocationSettings, selectModal, deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
     const ingredientRef = useRef()
 
     const [ingredientDropdown, setIngredientDropdown] = useState(false)
@@ -14,19 +14,6 @@ const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecip
     const handleClickOnChevron = () => {
         setIngredientDropdown(!ingredientDropdown)
     }
-
-    // useEffect(() => {
-    //     const handler = event => {
-    //         if(!ingredientRef.current.contains(event.target)) {
-    //             setShowChild(false)
-    //         } 
-    //     }
-    //     document.addEventListener("mousedown", handler)
-
-    //     return () => {
-    //         document.removeEventListener("mousedown", handler)
-    //     }
-    // })
 
   return (
     <li
@@ -48,23 +35,41 @@ const IngredientItem = ({ selectModal, deleteIngredient, ingredient, familyRecip
         
         
         <div className="ingredientRight">
-            <UpdatedNumber multiplier={(familyRecipe !== undefined) ? (familyRecipe.multiplier ? familyRecipe.multiplier : 1) : (selectedRecipe.multiplier !== undefined) ? (selectedRecipe.multiplier) : 1} ingredient={ingredient} selectedRecipe={selectedRecipe}/> 
-            {/* {showChild && <DeleteIngredientButton deleteIngredient={deleteIngredient} recipeKey={selectedRecipe.key} ingredientKey={ingredient.key} familyKey={(familyRecipe !== undefined) ? familyRecipe.key : undefined} />} */}
-
+            <UpdatedNumber 
+                multiplier={(familyRecipe !== undefined) ? (familyRecipe.multiplier ? familyRecipe.multiplier : 1) : (selectedRecipe.multiplier !== undefined) ? (selectedRecipe.multiplier) : 1}
+                ingredient={ingredient}
+                selectedRecipe={selectedRecipe}
+            /> 
         </div>
         
 
         {(ingredientDropdown) && (
             (ingredient.hasSubRecipe) ?
-                <SubRecipe />
-            :
-                <SubRecipeCreateButton
-                    selectModal={selectModal}
-                    ingredient={ingredient} 
-                    familyRecipe={familyRecipe} 
-                    recipeIndex={recipeIndex} 
-                    selectedRecipe={selectedRecipe} 
+                <SubRecipe
+                    ingredient={ingredient}
+                    familyRecipe={familyRecipe}
+                    recipeIndex={recipeIndex}
+                    selectedRecipe={selectedRecipe}
                 />
+            :
+                <div className="buttonContainer">
+                    <SubRecipeCreateButton
+                        familyKey={familyKey}
+                        index={index}
+                        arrayLocationSettings={arrayLocationSettings}
+                        selectModal={selectModal}
+                        ingredient={ingredient} 
+                        familyRecipe={familyRecipe} 
+                        recipeIndex={recipeIndex} 
+                        selectedRecipe={selectedRecipe} 
+                    />
+                    <DeleteIngredientButton
+                        deleteIngredient={deleteIngredient}
+                        recipeKey={selectedRecipe.key}
+                        ingredientKey={ingredient.key}
+                        familyKey={(familyRecipe !== undefined) ? familyRecipe.key : undefined}
+                    />
+                </div>
             )
             // <div className="subRecipe">
             //     <div>Yeild: 50 orders</div>
