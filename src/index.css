@@ -522,9 +522,9 @@ cursor: pointer;
   background-color: #1a73e8;
 }
 
-/* .subRecipeIngredientInput {
-
-} */
+.yieldContainer {
+  text-align: right;
+}
 
 @media only screen and (max-width: 620px) {
   .sidebar {

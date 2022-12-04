@@ -163,6 +163,9 @@ function App() {
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].ingredients = ingredientObj.ingredients
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].hasSubRecipe = true
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].directions = ingredientObj.directions
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].yieldNumber = ingredientObj.yieldNumber
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].portionNumber = ingredientObj.portionNumber
+          recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].portionUnit = ingredientObj.portionUnit
           console.log(recipe)
           return recipe
         } else {
@@ -177,6 +180,9 @@ function App() {
           recipe.ingredients[ingredientObj.subIndex].ingredients =ingredientObj.ingredients
           recipe.ingredients[ingredientObj.subIndex].hasSubRecipe = true
           recipe.ingredients[ingredientObj.subIndex].directions = ingredientObj.directions
+          recipe.ingredients[ingredientObj.subIndex].yieldNumber = ingredientObj.yieldNumber
+          recipe.ingredients[ingredientObj.subIndex].portionNumber = ingredientObj.portionNumber
+          recipe.ingredients[ingredientObj.subIndex].portionUnit = ingredientObj.portionUnit
           return recipe
         } else {
           return recipe

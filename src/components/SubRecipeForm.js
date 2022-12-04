@@ -41,13 +41,58 @@ const SubRecipeForm = ({ arrayLocation, updateRecipe }) => {
         }
         return item
     })
-
-
     
   return (
     <div className="formContainer subRecipeForm">
         <form onSubmit={handleSubmit}>
             <p>Sub Recipe Ingredients:</p>
+            <div className="yieldContainer">
+                <div>Yield:
+                    <input
+                        onChange={handleChange}
+                        name="yieldNumber"
+                        type="text"
+                        placeholder="#"
+                        autoComplete="off"
+                        required
+                        size={3}
+                    />
+                </div>
+                <div>
+                    Portion Size:
+                    <input
+                        onChange={handleChange}
+                        name="portionNumber"
+                        type="text"
+                        placeholder="#"
+                        autoComplete="off"
+                        required
+                        size={3}
+                        value={inputs.portionNumber || ""}
+                    />
+                    <select value={inputs.portionUnit || "each"} onChange={handleChange} name="portionUnit">
+                        <option value="each">each</option>
+                        <option value="c">cups</option>
+                        <option value="qt">quarts</option>
+                        <option value="fl oz">fl oz (volume)</option>
+                        <option value="tbsp">tablespoons</option>
+                        <option value="tsp">teapoons</option>
+                        <option value="oz">oz (weight)</option>
+                        <option value="lb">pounds</option>
+                        <option value="pt">pints</option>
+                        <option value="gal">gallons</option>
+                        <option value="g">grams</option>
+                        <option value="kg">kilograms</option>
+                        <option value="ml">milliliters</option>
+                        <option value="l">liters</option>
+                        <option value="garnish">garnish</option>
+                        <option value="to taste">to taste</option>
+                    </select>
+                </div>
+                
+
+            </div>
+
             {array.map((item, index) => 
                 <div key={"subrecipeInput" + index}>
                     <input 

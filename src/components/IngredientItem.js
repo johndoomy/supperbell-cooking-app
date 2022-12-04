@@ -71,16 +71,6 @@ const IngredientItem = ({ familyKey, index, arrayLocationSettings, selectModal, 
                     />
                 </div>
             )
-            // <div className="subRecipe">
-            //     <div>Yeild: 50 orders</div>
-            //     <div>Portion Size: 2 fl oz</div>
-            //     <ul>
-            //         <li>ingredient1</li>
-            //         <li>ingredient2</li>
-            //         <li>ingredient3</li>
-            //     </ul>
-                
-            // </div>
         }
              
     </li>
