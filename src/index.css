@@ -452,6 +452,7 @@ cursor: pointer;
 .addIngredientButton {
   color: white;
   border-style: hidden;
+  border: none;
   background-color: #1a73e8;
   border-radius: 25px;
   padding: 5px 12px;
@@ -522,9 +523,9 @@ cursor: pointer;
   background-color: #1a73e8;
 }
 
-.yieldContainer {
+/* .yieldContainer {
   text-align: right;
-}
+} */
 
 @media only screen and (max-width: 620px) {
   .sidebar {
