@@ -2,8 +2,11 @@ import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import Content from "./components/Content"
 import { Helmet } from "react-helmet"
+import { putData, fetchData } from "./AwsFunctions"
+import AWS from "aws-sdk"
 
 function App() {
+
   class Recipe {
     constructor(name, key, ingredients, type, amount, unit, directions) {
       this.name = name
@@ -16,7 +19,74 @@ function App() {
     }
   }
 
-  const [recipes, setRecipes] = useState(localStorage.getItem("recipes") !== null ? JSON.parse(localStorage.getItem("recipes")) : [])
+  // console.log(AWS.config)
+
+
+  const fetchDataFromDynamoDb = async () => {
+    const dd = new AWS.DynamoDB()
+    console.log(dd)
+    const result = await fetchData('recipesList')
+    console.log(result)
+    return result
+  }
+
+  const addDataToDynamoDB = async () => {
+    const newRecipes = [
+      {
+            name: "Caesar Salad",
+            key: 1254878754512,
+            ingredients: [{key: 111111111, name: "Romaine", amount: 8, unit: "fl oz"}, {key: 111111112121211, name: "Caesar Dressing", amount: 8, unit: "fl oz"}, {key: 111118787871111, name: "Croutons", amount: 8, unit: "fl oz"}, {key: 11111111999991, name: "Parmesan Cheese", amount: 8, unit: "fl oz"}],
+            type: "salad",
+            amount: 1,
+            unit: "each",
+            directions: "N/A"
+          },
+          {
+            name: "Chicken Parm",
+            key: 132654987956321,
+            ingredients: [{key: 22222, name: "Chicken Parmesan", amount: 8, unit: "fl oz"}, {key: 22223, name: "Marinara", amount: 8, unit: "fl oz"}, {key: 2228, name: "Spaghetti", amount: 8, unit: "fl oz"}, {key: 2298898922, name: "Parmesan Cheese", amount: 8, unit: "fl oz"}, {key: 2287878787878722, name: "Parsley", amount: 8, unit: "fl oz"}],
+            type: "entree",
+            amount: 1,
+            unit: "each",
+            directions: "N/A"
+          },
+          {
+            name: "Chicken Parm Family Meal",
+            key: 6006,
+            ingredients: [{
+              name: "Chicken Parm",
+              key: 8787845454,
+              ingredients: [{key: 333333333, name: "Chicken Parmesan", amount: 8, unit: "fl oz"}, {key: 3333878733333, name: "Marinara", amount: 8, unit: "fl oz"}, {key: 3333333399993, name: "Spaghetti", amount: 8, unit: "fl oz"}, {key: 3333833333, name: "Parmesan Cheese", amount: 8, unit: "fl oz"}, {key: 333388888777413, name: "Parsley", amount: 8, unit: "fl oz"}],
+              type: "entree",
+              amount: 2,
+              unit: "each",
+              directions: "N/A"
+            },
+            {
+              name: "Caesar Salad",
+              key: 8888888,
+              ingredients: [{key: 4444, name: "Romaine", amount: 8, unit: "fl oz"}, {key: 44424, name: "Caesar Dressing", amount: 8, unit: "fl oz"}, {key: 448844, name: "Croutons", amount: 8, unit: "fl oz"}, {key: 449898944, name: "Parmesan Cheese", amount: 8, unit: "fl oz"}],
+              type: "salad",
+              amount: 1,
+              unit: "each",
+              directions: "N/A"
+            }],
+            type: "family meal",
+            amount: 1,
+            unit: "each",
+            directions: "N/A"
+          }
+    ]
+      
+    
+    // Call the putData function and return the result
+    const result = await putData("recipesList", newRecipes)
+    return result
+  }
+  
+  
+  // const [recipes, setRecipes] = useState(localStorage.getItem("recipes") !== null ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
+  const [recipes, setRecipes] = useState(localStorage.getItem("recipes") !== null ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
 
   const save = (newRecipes) => {
     console.log("saving")
@@ -259,7 +329,8 @@ function App() {
       </Helmet>
       <Header toggleNav={toggleNav} />
       <Content isExpanded={isExpanded} deleteIngredient={deleteIngredient} setMultiplier={setMultiplier} updateRecipe={updateRecipe} addRecipe={addRecipe} deleteRecipe={deleteRecipe} selectRecipe={selectRecipe} selectedRecipe={selectedRecipe} toggleNav={toggleNav} recipes={recipes} />
-
+      <button onClick={() => fetchDataFromDynamoDb()}> Fetch </button>
+      <button onClick={() => addDataToDynamoDB()}> Put </button>
     </div>
   )
 }
