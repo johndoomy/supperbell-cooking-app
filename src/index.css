@@ -386,6 +386,7 @@ cursor: pointer;
 }
 
 .dropdownItem:hover {
+  cursor: pointer;
   background-color: lightgray;
 }
 
