@@ -2,6 +2,7 @@
   font-family: "Roboto";
   src: url("./font/Roboto-Regular.ttf");
 }
+
 @font-face {
   font-family: "Roboto-Thin";
   src: url("./font/Roboto-Thin.ttf");
@@ -34,7 +35,7 @@ header {
 #appTitle {
   height: 30px;
   font-size: 30px;
-  
+
   padding-left: 10px;
 }
 
@@ -43,7 +44,7 @@ header {
   width: 250px;
   position: absolute;
   z-index: 0;
-  top: 120;
+
   left: 0;
   /* background-color: transparent; */
   overflow-x: hidden;
@@ -75,7 +76,8 @@ header {
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
 }
 
-#recipesButton, .showRecipeModal {
+#recipesButton,
+.showRecipeModal {
   padding: 8px 8px 8px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -100,7 +102,8 @@ header {
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
 }
 
-.showRecipeModal:hover, #saveButton:hover {
+.showRecipeModal:hover,
+#saveButton:hover {
   background-color: #1a73e8;
   color: #000;
   cursor: pointer;
@@ -226,17 +229,25 @@ ul.listOfIngredients {
 }
 
 .modal {
-  display: none; 
-  position: fixed; /* Stay in place */
-  z-index: 2; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .modal-content {
@@ -265,6 +276,7 @@ ul.listOfIngredients {
   padding-right: 20px;
   color: #000;
 }
+
 .createText {
   font-family: "Roboto";
   float: right;
@@ -273,7 +285,8 @@ ul.listOfIngredients {
   font-weight: 100;
 }
 
-#createRecipeButton, #cancelRecipeButton {
+#createRecipeButton,
+#cancelRecipeButton {
   border: none;
   background-color: transparent;
   font-size: 16px;
@@ -284,7 +297,8 @@ ul.listOfIngredients {
   margin-bottom: 10px;
 }
 
-.createText:hover, .cancelText:hover {
+.createText:hover,
+.cancelText:hover {
   cursor: pointer;
   color: #1a73e8;
 }
@@ -296,10 +310,11 @@ ul.listOfIngredients {
   font-weight: bold;
 }
 
-.close:hover, .close:focus {
-color: #000;
-text-decoration: none;
-cursor: pointer;
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .inputBoxBackground {
@@ -331,12 +346,15 @@ cursor: pointer;
   font-size: 16px;
 }
 
-#typeContainer, .familyMealComponents {
+#typeContainer,
+.familyMealComponents {
   padding: 5px;
   padding-top: 15px;
 }
 
-#typeInput, .recipeComponentInputText, .selectContainer {
+#typeInput,
+.recipeComponentInputText,
+.selectContainer {
   font-size: 16px;
   border-style: hidden;
   border: none;
@@ -360,7 +378,9 @@ cursor: pointer;
   padding: 6px;
 }
 
-.kebab:hover, .kebab:focus, .showingDropdown {
+.kebab:hover,
+.kebab:focus,
+.showingDropdown {
   border-radius: 50%;
   background-color: lightgray;
 }
@@ -371,7 +391,7 @@ cursor: pointer;
   background-color: white;
   min-width: 160px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   right: 0;
   z-index: 1;
   border-radius: 3px;
@@ -402,7 +422,8 @@ cursor: pointer;
   display: flex;
 }
 
-.ingredientChevronUp, .ingredientChevronDown {
+.ingredientChevronUp,
+.ingredientChevronDown {
   font-size: 18px;
   float: right;
 }
@@ -437,7 +458,9 @@ cursor: pointer;
   background-color: rgb(168, 0, 0);
 }
 
-.ingredientInputText, .amountInputText, .unitInput {
+.ingredientInputText,
+.amountInputText,
+.unitInput {
   border-style: solid;
   border: thin solid gray;
   border-top-style: hidden;
@@ -534,7 +557,7 @@ cursor: pointer;
     z-index: 0;
     padding-top: 15px;
     transition: .2s;
-    width: calc(100vw - 30%);
+    width: calc(100vw - 40%);
   }
 
   #main {
@@ -544,12 +567,14 @@ cursor: pointer;
 
   #main.move {
     margin-left: 0px;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
   }
 
   .ingredient.darken {
-    border-bottom: thin solid rgba(0,0,0,0.4);
+    border-bottom: thin solid rgba(0, 0, 0, 0.4);
   }
 
   .formContainer {
@@ -580,7 +605,9 @@ cursor: pointer;
     height: 340px;
   }
 
-  .ingredientInputText, .amountInputText, .unitInput {
+  .ingredientInputText,
+  .amountInputText,
+  .unitInput {
     font-size: 16px;
     border-radius: 0%;
   }
@@ -590,7 +617,8 @@ cursor: pointer;
     -webkit-appearance: auto;
   }
 
-  #noRecipesText, .startButton {
+  #noRecipesText,
+  .startButton {
     font-size: 16px;
   }
 
