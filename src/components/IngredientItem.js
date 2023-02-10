@@ -15,66 +15,67 @@ const IngredientItem = ({ familyKey, index, arrayLocationSettings, selectModal, 
         setIngredientDropdown(!ingredientDropdown)
     }
 
-  return (
-    <li
-        ref={ingredientRef}
-        key={recipeIndex}
-        className="ingredient">
-        <span>{ingredient.name}</span>
-        {!ingredientDropdown ?
-            <BsChevronDown 
-                onClick={handleClickOnChevron}
-                className="ingredientChevronDown" 
-            /> 
-            :
-            <BsChevronUp 
-                onClick={handleClickOnChevron} 
-                className="ingredientChevronUp" 
-            />   
-        }
-        
-        
-        <div className="ingredientRight">
-            <UpdatedNumber 
+    return (
+        <li
+            ref={ingredientRef}
+            key={recipeIndex}
+            className="ingredient">
+            <><UpdatedNumber
                 multiplier={(familyRecipe !== undefined) ? (familyRecipe.multiplier ? familyRecipe.multiplier : 1) : (selectedRecipe.multiplier !== undefined) ? (selectedRecipe.multiplier) : 1}
                 ingredient={ingredient}
                 selectedRecipe={selectedRecipe}
-            /> 
-        </div>
-        
+            />
 
-        {(ingredientDropdown) && (
-            (ingredient.hasSubRecipe) ?
-                <SubRecipe
-                    ingredient={ingredient}
-                    familyRecipe={familyRecipe}
-                    recipeIndex={recipeIndex}
-                    selectedRecipe={selectedRecipe}
-                />
-            :
-                <div className="buttonContainer">
-                    <SubRecipeCreateButton
-                        familyKey={familyKey}
-                        index={index}
-                        arrayLocationSettings={arrayLocationSettings}
-                        selectModal={selectModal}
-                        ingredient={ingredient} 
-                        familyRecipe={familyRecipe} 
-                        recipeIndex={recipeIndex} 
-                        selectedRecipe={selectedRecipe} 
+                {!ingredientDropdown ?
+                    <BsChevronDown
+                        onClick={handleClickOnChevron}
+                        className="ingredientChevronDown"
                     />
-                    <DeleteIngredientButton
-                        deleteIngredient={deleteIngredient}
-                        recipeKey={selectedRecipe.key}
-                        ingredientKey={ingredient.key}
-                        familyKey={(familyRecipe !== undefined) ? familyRecipe.key : undefined}
+                    :
+                    <BsChevronUp
+                        onClick={handleClickOnChevron}
+                        className="ingredientChevronUp"
                     />
+                }
+
+
+                <div className="ingredientRight">
+                    <span>{ingredient.name}</span>
                 </div>
-            )
-        }
-             
-    </li>
-  )
+
+
+                {(ingredientDropdown) && (
+                    (ingredient.hasSubRecipe) ?
+                        <SubRecipe
+                            ingredient={ingredient}
+                            familyRecipe={familyRecipe}
+                            recipeIndex={recipeIndex}
+                            selectedRecipe={selectedRecipe}
+                        />
+                        :
+                        <div className="buttonContainer">
+                            <SubRecipeCreateButton
+                                familyKey={familyKey}
+                                index={index}
+                                arrayLocationSettings={arrayLocationSettings}
+                                selectModal={selectModal}
+                                ingredient={ingredient}
+                                familyRecipe={familyRecipe}
+                                recipeIndex={recipeIndex}
+                                selectedRecipe={selectedRecipe}
+                            />
+                            <DeleteIngredientButton
+                                deleteIngredient={deleteIngredient}
+                                recipeKey={selectedRecipe.key}
+                                ingredientKey={ingredient.key}
+                                familyKey={(familyRecipe !== undefined) ? familyRecipe.key : undefined}
+                            />
+                        </div>
+                )
+                }</>
+
+        </li>
+    )
 }
 
 export default IngredientItem

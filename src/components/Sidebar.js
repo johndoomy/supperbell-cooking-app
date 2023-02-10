@@ -25,39 +25,41 @@ const Sidebar = ({ save, isExpanded, recipes, selectRecipe, selectedRecipe, sele
 
   return (
     <div ref={sidebarRef} className={isExpanded ? "sidebar is-open" : "sidebar"}>
-        <div onClick={() => {(window.innerWidth <= 620 && toggleNav()); selectModal("recipe"); document.querySelector(".modal").style.display = "block"; (document.querySelector('#recipeInputText') !== null) && document.querySelector('#recipeInputText').focus()}}  className="showRecipeModal"> 
-          <span>+ New Recipe</span>
-        </div>
+      <div onClick={() => { (window.innerWidth <= 620 && toggleNav()); selectModal("recipe"); document.querySelector(".modal").style.display = "block"; (document.querySelector('#recipeInputText') !== null) && document.querySelector('#recipeInputText').focus() }} className="showRecipeModal">
+        <span>+ New Recipe</span>
+      </div>
 
-        <p className="listTitle">Entrees</p>
-        <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={entrees} />
-        <div className="itemCount">
-          {entrees.length} items
-        </div>
+      {entrees[0] &&
+        <>
+          <p className="listTitle">Entrees</p>
+          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={entrees} />
 
-        <div className="sideBarUnderline"></div>
+          <div className="sideBarUnderline"></div>
+        </>}
 
-        <p className="listTitle">Family Meals</p>
-        <RecipesUl selectedRecipe={selectedRecipe}  toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={familyMeals} />
-        <div className="itemCount">
-          {familyMeals.length} items
-        </div>
+      {familyMeals[0] &&
+        <>
+          <p className="listTitle">Family Meals</p>
+          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={familyMeals} />
 
-        <div className="sideBarUnderline"></div>
+          <div className="sideBarUnderline"></div>
+        </>}
 
-        <p className="listTitle">Salads</p>
-        <RecipesUl selectedRecipe={selectedRecipe}  toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={salads} />
-        <div className="itemCount">
-          {salads.length} items
-        </div>
+      {salads[0] &&
+        <>
+          <p className="listTitle">Salads</p>
+          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={salads} />
 
-        <div className="sideBarUnderline"></div>
+          <div className="sideBarUnderline"></div>
+        </>}
 
-        <p className="listTitle">Sides</p>
-        <RecipesUl selectedRecipe={selectedRecipe}  toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={sides} />
-        <div className="itemCount">
-          {sides.length} items
-        </div>
+      {sides[0] &&
+        <>
+          <p className="listTitle">Sides</p>
+          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={sides} />
+
+          <div className="sideBarUnderline"></div>
+        </>}
     </div>
   )
 }

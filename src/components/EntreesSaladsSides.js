@@ -5,7 +5,7 @@ import IngredientItem from "./IngredientItem"
 const EntreesSaladsSides = ({ arrayLocationSettings, selectModal, deleteIngredient, familyRecipe, index, updateRecipe, selectedRecipe }) => {
 
   return (
-    <div>
+    <div className="recipeCard">
       {JSON.stringify(selectedRecipe.ingredients) !== JSON.stringify(["none"]) &&
         <ul className="listOfIngredients">
           {selectedRecipe.ingredients && selectedRecipe.ingredients.map((ingredient, recipeIndex) => (

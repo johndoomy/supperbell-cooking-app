@@ -193,6 +193,16 @@ header {
   justify-content: space-between;
 }
 
+.recipeCard {
+  /* border: thin solid black; */
+  border-radius: 12px;
+  width: 50vw;
+}
+
+.familyMealCard {
+  width: 50vw;
+}
+
 h2 {
   margin: 0px;
   font-family: "Roboto-Thin";
@@ -225,7 +235,8 @@ ul.listOfIngredients {
 
 .ingredient:hover {
   background-color: #f1f3f4;
-  cursor: pointer;
+  border-radius: 12px;
+
 }
 
 .modal {
@@ -415,11 +426,9 @@ ul.listOfIngredients {
 }
 
 .ingredientRight {
-  height: auto;
-  width: auto;
   margin-right: 10px;
   float: right;
-  display: flex;
+  /* display: flex; */
 }
 
 .ingredientChevronUp,
@@ -436,7 +445,6 @@ ul.listOfIngredients {
   font-size: 16px;
   text-decoration: underline;
   padding-top: 29px;
-  margin-right: 25px;
   float: right;
   display: flex;
 }
@@ -497,7 +505,7 @@ ul.listOfIngredients {
   padding-top: 16px;
   padding-bottom: 16px;
   border-style: solid;
-  border: thin solid black;
+  border: thin solid rgb(173, 173, 173);
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
@@ -547,17 +555,26 @@ ul.listOfIngredients {
   background-color: #1a73e8;
 }
 
+.ingredientChevronDown,
+.ingredientChevronUp {
+  cursor: pointer;
+}
+
 /* .yieldContainer {
   text-align: right;
 } */
 
 @media only screen and (max-width: 620px) {
+  #appTitle {
+    font-size: 7.5vw;
+  }
+
   .sidebar {
     background-color: white;
     z-index: 0;
     padding-top: 15px;
     transition: .2s;
-    width: calc(100vw - 40%);
+    width: 255px;
   }
 
   #main {
@@ -629,6 +646,14 @@ ul.listOfIngredients {
     font-size: 120%;
     padding-left: 15%;
     padding-right: 15%;
+  }
+
+  .recipeCard {
+    width: 95vw;
+  }
+
+  .familyMealCard {
+    width: 95vw;
   }
 
 }
