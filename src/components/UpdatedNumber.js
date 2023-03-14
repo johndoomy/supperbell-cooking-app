@@ -74,9 +74,9 @@ const UpdatedNumber = ({ selectedRecipe, multiplier, ingredient }) => {
   let newMeasurement = convertMeasurement(measurement)
 
   return (
-    <div className="updatedNumber">
+    <span className="updatedNumber">
         {newMeasurement.amount} {newMeasurement.unit}
-    </div>
+    </span>
   )
 }
 

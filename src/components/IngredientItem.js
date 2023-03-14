@@ -19,30 +19,32 @@ const IngredientItem = ({ familyKey, index, arrayLocationSettings, selectModal, 
         <li
             ref={ingredientRef}
             key={recipeIndex}
-            className="ingredient">
-            <><UpdatedNumber
-                multiplier={(familyRecipe !== undefined) ? (familyRecipe.multiplier ? familyRecipe.multiplier : 1) : (selectedRecipe.multiplier !== undefined) ? (selectedRecipe.multiplier) : 1}
-                ingredient={ingredient}
-                selectedRecipe={selectedRecipe}
-            />
-
-                {!ingredientDropdown ?
-                    <BsChevronDown
-                        onClick={handleClickOnChevron}
-                        className="ingredientChevronDown"
+            className="ingredient"
+        >
+            <>
+                <div className="ingredientInfoLine">
+                    <UpdatedNumber
+                        multiplier={(familyRecipe !== undefined) ? (familyRecipe.multiplier ? familyRecipe.multiplier : 1) : (selectedRecipe.multiplier !== undefined) ? (selectedRecipe.multiplier) : 1}
+                        ingredient={ingredient}
+                        selectedRecipe={selectedRecipe}
                     />
-                    :
-                    <BsChevronUp
-                        onClick={handleClickOnChevron}
-                        className="ingredientChevronUp"
-                    />
-                }
-
-
-                <div className="ingredientRight">
-                    <span>{ingredient.name}</span>
+                    <span className="ingredientRight">
+                        <span>{ingredient.name}</span>
+                        {!ingredientDropdown ?
+                            <BsChevronDown
+                                onClick={handleClickOnChevron}
+                                className="ingredientChevronDown"
+                            />
+                            :
+                            <BsChevronUp
+                                onClick={handleClickOnChevron}
+                                className="ingredientChevronUp"
+                            />
+                        }
+                        
+                    </span>
+                    
                 </div>
-
 
                 {(ingredientDropdown) && (
                     (ingredient.hasSubRecipe) ?

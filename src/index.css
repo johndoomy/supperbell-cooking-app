@@ -427,14 +427,14 @@ ul.listOfIngredients {
 
 .ingredientRight {
   margin-right: 10px;
-  float: right;
+  /* float: right; */
   /* display: flex; */
 }
 
 .ingredientChevronUp,
 .ingredientChevronDown {
   font-size: 18px;
-  float: right;
+  /* float: right; */
 }
 
 .ingredientChevronLeft:hover {
@@ -447,6 +447,11 @@ ul.listOfIngredients {
   padding-top: 29px;
   float: right;
   display: flex;
+}
+
+.ingredientInfoLine {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* .updatedNumber {
