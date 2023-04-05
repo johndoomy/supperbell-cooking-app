@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react"
+import IngredientForm from "./IngredientForm"
 import RecipeForm from "./RecipeForm"
 import SubRecipeForm from "./SubRecipeForm"
 import UpdateNumbersForm from "./UpdateNumbersForm"
@@ -63,6 +64,9 @@ const JModal = ({ arrayLocation, updateRecipe, recipeKey, setMultiplier, modalSt
               :
               (modalState === "subRecipe") ?
                 <SubRecipeForm arrayLocation={arrayLocation} updateRecipe={updateRecipe} />
+              :
+              (modalState === "addIngredient") ?
+                <IngredientForm handleClose1={handleClose1} />
               :
               console.log("modal error")
             }

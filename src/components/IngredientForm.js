@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
+const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe, handleClose1 }) => {
     const [inputs, setInputs] = useState({unit: "each"})
 
     const handleChange = event => {
@@ -20,7 +20,7 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
 
   return (
     <div className="formContainer ingredientForm">
-        <form onSubmit={handleSubmit}>
+        <form className="ingredientFormContent" onSubmit={handleSubmit}>
             <input
                 autoFocus={(window.innerWidth > 620) && true}
                 autoComplete="off"
@@ -64,9 +64,14 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe }) => {
             </select>
 
 
-            <input className="addIngredientButton" type="submit" value="Add" />
+            {/* <input className="addIngredientButton" type="submit" value="Add" /> */}
+            <div className="cancelCreate cancelCreateIngredient">
+            <input className="createText" id="createRecipeButton" type="submit" value="Add" /><input type="button" onClick={() => {handleClose1()}} value="Cancel" id="cancelRecipeButton" className="cancelText" />
+        </div>
 
         </form>
+
+        
     </div>
   )
 }

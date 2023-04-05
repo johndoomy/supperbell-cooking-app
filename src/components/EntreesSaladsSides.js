@@ -12,7 +12,7 @@ const EntreesSaladsSides = ({ arrayLocationSettings, selectModal, deleteIngredie
             <IngredientItem familyKey={familyRecipe && familyRecipe.key} index={index} arrayLocationSettings={arrayLocationSettings} selectModal={selectModal} deleteIngredient={deleteIngredient} key={recipeIndex} selectedRecipe={selectedRecipe} familyRecipe={familyRecipe} ingredient={ingredient} recipeIndex={recipeIndex} />))}
         </ul>
       }
-      {selectedRecipe.type !== "example" && <IngredientForm familyKey={familyRecipe && familyRecipe.key} index={index} updateRecipe={updateRecipe} selectedRecipe={selectedRecipe} />}
+      {/* {selectedRecipe.type !== "example" && <IngredientForm familyKey={familyRecipe && familyRecipe.key} index={index} updateRecipe={updateRecipe} selectedRecipe={selectedRecipe} />} */}
     </div>
   )
 }

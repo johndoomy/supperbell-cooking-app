@@ -50,7 +50,8 @@ const Main = ({ arrayLocationSettings, isExpanded, deleteIngredient, updateRecip
           updateRecipe={updateRecipe} 
           selectedRecipe={selectedRecipe} 
         />
-      )}   
+      )}
+      <input type="button" value="Add Ingredient" onClick={() => {selectModal("addIngredient"); document.querySelector(".modal").style.display = "block"}} />
     </div>
   )
 }

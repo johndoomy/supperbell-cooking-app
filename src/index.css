@@ -328,6 +328,10 @@ ul.listOfIngredients {
   cursor: pointer;
 }
 
+.ingredientFormContent {
+  padding-bottom: 30px;
+}
+
 .inputBoxBackground {
   background-color: #f1f3f4;
   margin-top: 20px;
@@ -434,6 +438,7 @@ ul.listOfIngredients {
 .ingredientChevronUp,
 .ingredientChevronDown {
   font-size: 18px;
+  margin-left: 8px;
   /* float: right; */
 }
 
@@ -506,14 +511,20 @@ ul.listOfIngredients {
 }
 
 .ingredientForm {
+  height: 50px;
   padding: 5px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  border-style: solid;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  /* border-style: solid;
   border: thin solid rgb(173, 173, 173);
   border-top-style: hidden;
   border-left-style: hidden;
-  border-right-style: hidden;
+  border-right-style: hidden; */
+}
+
+.cancelCreateIngredient {
+  margin-top: 50px;
 }
 
 .startRecipe {
