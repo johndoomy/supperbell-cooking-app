@@ -1,3 +1,4 @@
+import "../styling/EntreesSaladsSides.css"
 import IngredientForm from "./IngredientForm"
 import IngredientItem from "./IngredientItem"
 

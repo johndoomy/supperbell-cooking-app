@@ -1,3 +1,4 @@
+import "../styling/Header.css"
 import { BsList } from "react-icons/bs"
 
 const Header = ({ toggleNav }) => {

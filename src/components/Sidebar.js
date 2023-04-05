@@ -1,3 +1,4 @@
+import "../styling/Sidebar.css"
 import { useRef, useEffect } from "react"
 import RecipesUl from "./RecipesUl"
 

@@ -1,0 +1,116 @@
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    z-index: 0;
+
+    left: 0;
+    /* background-color: transparent; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.3s;
+    padding-top: 24px;
+    transform: translateX(-100%);
+
+}
+
+.sidebar.is-open {
+    transform: translateX(0%);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sideBarUnderline {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 1px, 161px;
+    height: 1px;
+    background-color: lightgray;
+}
+
+#recipesButton,
+.showRecipeModal {
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.showRecipeModal {
+    border-style: hidden;
+    border: thin solid line;
+    border-radius: 20px;
+    padding: 8px 0px 8px 0px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: #1a73e8;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+}
+
+.showRecipeModal:hover,
+#saveButton:hover {
+    background-color: #1a73e8;
+    color: #000;
+    cursor: pointer;
+}
+
+.recipesUl {
+    margin: 0px;
+    font-size: 16px;
+    padding: 5px 5px 5px 0px;
+    list-style-type: none;
+}
+
+.recipesUl li {
+    color: #416671;
+    padding: 15px 2px 15px 20px;
+    cursor: pointer;
+}
+
+
+.recipesUl li:hover {
+    background-color: #f8f9fa;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.recipesUl li.selectedRecipe {
+    color: #000;
+    background-color: #f1f3f4;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.listTitle {
+    margin-bottom: 10px;
+    font-size: larger;
+    padding-left: 10px;
+}
+
+
+@media only screen and (max-width: 620px) {
+    .sidebar {
+        background-color: white;
+        z-index: 0;
+        padding-top: 15px;
+        transition: .2s;
+        width: 255px;
+    }
+
+    .showRecipeModal {
+        font-size: 18px;
+    }
+}

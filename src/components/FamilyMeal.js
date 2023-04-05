@@ -1,3 +1,4 @@
+import "../styling/FamilyMeal.css"
 import EntreesSaladsSides from "./EntreesSaladsSides"
 
 const FamilyMeal = ({ arrayLocationSettings, selectModal, deleteIngredient, updateRecipe, selectedRecipe }) => {

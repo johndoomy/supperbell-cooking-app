@@ -14,52 +14,7 @@ body {
   overflow-y: auto;
 }
 
-header {
-  font-size: 25px;
-  padding: 10px;
-  z-index: 3;
-  box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%), 0px 2px 4px -1px rgb(0 0 0 / 20%);
-}
-
-.hamburgerButton {
-  font-size: 30px;
-  cursor: pointer
-}
-
-.hamburgerButton:hover {
-  background-color: lightgray;
-  border-radius: 50%;
-  padding: 0px;
-}
-
-#appTitle {
-  height: 30px;
-  font-size: 30px;
-
-  padding-left: 10px;
-}
-
-.sidebar {
-  height: 100%;
-  width: 250px;
-  position: absolute;
-  z-index: 0;
-
-  left: 0;
-  /* background-color: transparent; */
-  overflow-x: hidden;
-  overflow-y: hidden;
-  transition: 0.3s;
-  padding-top: 24px;
-  transform: translateX(-100%);
-
-}
-
-.sidebar.is-open {
-  transform: translateX(0%);
-}
-
-#saveButton {
+/* #saveButton {
   font-size: 20px;
   border-style: hidden;
   border-radius: 20px;
@@ -74,134 +29,27 @@ header {
   text-align: center;
   width: 200px;
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
-}
+} */
 
-#recipesButton,
-.showRecipeModal {
-  padding: 8px 8px 8px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-  display: block;
-  transition: 0.3s;
-}
 
-.showRecipeModal {
-  border-style: hidden;
-  border: thin solid line;
-  border-radius: 20px;
-  padding: 8px 0px 8px 0px;
-  display: flex;
-  justify-content: center;
-  margin-left: 25px;
-  margin-bottom: 10px;
-  background-color: white;
-  color: #1a73e8;
-  text-align: center;
-  width: 200px;
-  box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
-}
 
-.showRecipeModal:hover,
-#saveButton:hover {
-  background-color: #1a73e8;
-  color: #000;
-  cursor: pointer;
-}
-
-.sidebar .closebtn {
+/* .sidebar .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
-
-.recipesUl {
-  margin: 0px;
-  font-size: 16px;
-  padding: 5px 5px 5px 0px;
-  list-style-type: none;
-}
-
-.recipesUl li {
-  color: #416671;
-  padding: 15px 2px 15px 20px;
-  cursor: pointer;
-}
+} */
 
 
-.recipesUl li:hover {
-  background-color: #f8f9fa;
-  border-top-right-radius: 22px;
-  border-bottom-right-radius: 22px;
-}
-
-.recipesUl li.selectedRecipe {
-  color: #000;
-  background-color: #f1f3f4;
-  border-top-right-radius: 22px;
-  border-bottom-right-radius: 22px;
-}
-
-.listTitle {
-  margin-bottom: 10px;
-  font-size: larger;
-  padding-left: 10px;
-}
-
-.itemCount {
+/* .itemCount {
   padding-right: 20px;
   padding-bottom: 10px;
   font-size: 16px;
   color: gray;
   text-align: right;
-}
+} */
 
-.sideBarUnderline {
-  margin-left: 8px;
-  margin-right: 8px;
-  padding: 1px, 161px;
-  height: 1px;
-  background-color: lightgray;
-}
-
-#main {
-  z-index: 1;
-  height: 100vh;
-  transition: .3s;
-  padding: 16px 24px 16px 24px;
-}
-
-#main.move {
-  margin-left: 250px;
-}
-
-.typeSpan {
-  padding-left: 10px;
-  font-size: .75em;
-}
-
-#titleContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-}
-
-.componentTitleContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.recipeCard {
-  /* border: thin solid black; */
-  border-radius: 12px;
-  width: 50vw;
-}
-
-.familyMealCard {
-  width: 50vw;
-}
 
 h2 {
   margin: 0px;
@@ -215,18 +63,7 @@ h3 {
   text-decoration: underline;
 }
 
-.titleContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-}
 
-ul.listOfIngredients {
-  padding: 0px;
-  margin-top: 0px;
-  margin-bottom: 12px;
-  list-style-type: none;
-}
 
 .ingredient {
   padding: 16px;
@@ -446,14 +283,6 @@ ul.listOfIngredients {
   border-radius: 50%;
 }
 
-.componentCount {
-  font-size: 16px;
-  text-decoration: underline;
-  padding-top: 29px;
-  float: right;
-  display: flex;
-}
-
 .ingredientInfoLine {
   display: flex;
   justify-content: space-between;
@@ -527,32 +356,14 @@ ul.listOfIngredients {
   margin-top: 50px;
 }
 
-.startRecipe {
-  text-align: center;
-}
-
 #checkListImage {
   height: 200px;
   width: auto;
 }
 
-#noRecipesText {
-  text-decoration: underline;
-  margin-bottom: 30px;
-}
 
-.startButton {
-  display: fixed;
-  border: none;
-  background-color: #1a73e8;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 20px;
-}
 
-.startButton:hover {
-  cursor: pointer;
-}
+
 
 
 
@@ -581,30 +392,6 @@ ul.listOfIngredients {
 } */
 
 @media only screen and (max-width: 620px) {
-  #appTitle {
-    font-size: 7.5vw;
-  }
-
-  .sidebar {
-    background-color: white;
-    z-index: 0;
-    padding-top: 15px;
-    transition: .2s;
-    width: 255px;
-  }
-
-  #main {
-    z-index: -3;
-    padding: 10px
-  }
-
-  #main.move {
-    margin-left: 0px;
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-  }
 
   .ingredient.darken {
     border-bottom: thin solid rgba(0, 0, 0, 0.4);
@@ -614,9 +401,7 @@ ul.listOfIngredients {
     padding: 0px 0px 8px 0px;
   }
 
-  .showRecipeModal {
-    font-size: 18px;
-  }
+
 
   .ingredientForm {
     text-align: center;
@@ -650,10 +435,7 @@ ul.listOfIngredients {
     -webkit-appearance: auto;
   }
 
-  #noRecipesText,
-  .startButton {
-    font-size: 16px;
-  }
+
 
   .addIngredientButton {
     margin: auto;
@@ -664,12 +446,5 @@ ul.listOfIngredients {
     padding-right: 15%;
   }
 
-  .recipeCard {
-    width: 95vw;
-  }
-
-  .familyMealCard {
-    width: 95vw;
-  }
 
 }

@@ -1,0 +1,38 @@
+.familyMealCard {
+    width: 50vw;
+}
+
+#typeInput,
+.recipeComponentInputText,
+.selectContainer {
+    font-size: 16px;
+    border-style: hidden;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    border-bottom: thin solid #1a73e8;
+    background-color: #f1f3f4;
+}
+
+.recipeComponentInputText {
+    margin: 3px;
+}
+
+.componentTitleContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.componentCount {
+    font-size: 16px;
+    text-decoration: underline;
+    padding-top: 29px;
+    float: right;
+    display: flex;
+}
+
+@media only screen and (max-width: 620px) {
+    .familyMealCard {
+        width: 95vw;
+    }
+}
