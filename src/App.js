@@ -17,9 +17,7 @@ function App() {
     }
   }
 
-
-  // const [recipes, setRecipes] = useState(localStorage.getItem("recipes") !== null ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
-  const [recipes, setRecipes] = useState(localStorage.getItem("recipes") !== null ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
+  const [recipes, setRecipes] = useState(localStorage.getItem("recipes") ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
 
   const save = (newRecipes) => {
     console.log("saving")
