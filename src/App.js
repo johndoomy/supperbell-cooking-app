@@ -17,8 +17,10 @@ function App() {
     }
   }
 
+  // Get pre-existing recipes from local storage and load them to state
   const [recipes, setRecipes] = useState(localStorage.getItem("recipes") ? JSON.parse(localStorage.getItem("recipes")) : []) //this is local storage state
 
+  // Function to store a new recipe into local storage
   const save = (newRecipes) => {
     console.log("saving")
     localStorage.setItem("recipes", JSON.stringify(newRecipes))
@@ -72,66 +74,69 @@ function App() {
   //   }
   // ])
 
+  // Currently selected key of state. Set to first recipe in state
   const [selectedKey, setSelectedKey] = useState(0)
 
-  const selectedRecipe = ((selectedKey === 0) ? recipes[0] : (recipes.find(recipe => recipe.key === selectedKey)))
+  // Find the currently selected recipe
+  const selectedRecipe = recipes.find(recipe => recipe.key === selectedKey)
 
+  // Function to select a recipe by its key
   const selectRecipe = key => {
     setSelectedKey(key)
   }
 
+  // Function to set recipe batch multiplier
   const setMultiplier = (recipeKey, newMultiplier) => {
     let newRecipes = recipes.map(recipe => {
       if (recipe.key === recipeKey) {
-        recipe.multiplier = newMultiplier
-        return recipe
-      } else {
-        return recipe
+        recipe.multiplier = newMultiplier // Set recipe multiplier
       }
+	  return recipe
     })
-    setRecipes(newRecipes)
+    setRecipes(newRecipes) // Save changed recipe to state
   }
 
+  // Function to delete a recipe
   const deleteRecipe = key => {
     let newRecipes = recipes.filter(recipe => recipe.key !== key)
-    setRecipes(newRecipes)
+    setRecipes(newRecipes) // Save new recipe list to state
     setSelectedKey(0)
-    save(newRecipes)
+    save(newRecipes) // Save new recipe list to local storage
   }
 
+  // Function to delete an ingredient in a recipe
   const deleteIngredient = (recipeKey, ingredientKey, familyKey) => {
-    if (familyKey) {
-      let newRecipes = recipes.map(recipe => {
-        if (familyKey === recipe.key) {
+    let newRecipes
+    if (familyKey) { // ??????????????????
+      newRecipes = recipes.map(recipe => { // New list of recipes
+        if (familyKey === recipe.key) { // Find family recipe?
           recipe.ingredients.map(recipeIngredient => {
-            if (recipeIngredient.key === recipeKey) {
+            if (recipeIngredient.key === recipeKey) { // If the recipe is an ingredient/sub-recipe of family?
               let newRecipeIngredients = recipeIngredient.ingredients.filter(ingredient => ingredient.key !== ingredientKey)
               recipeIngredient.ingredients = newRecipeIngredients
-              return recipeIngredient
-            } else { return recipeIngredient }
-          })
-          return recipe
-        } else { return recipe }
+            }
+			      return recipeIngredient
+		      })
+        }
+		    return recipe
       })
-      setRecipes(newRecipes)
-      save(newRecipes)
     } else {
-      let newRecipes = recipes.map(recipe => {
-        if (recipeKey === recipe.key) {
-          let newRecipeIngredients = recipe.ingredients.filter(ingredient => ingredient.key !== ingredientKey)
+      newRecipes = recipes.map(recipe => { // New list of recipes
+        if (recipeKey === recipe.key) { // Find recipe
+          let newRecipeIngredients = recipe.ingredients.filter(ingredient => ingredient.key !== ingredientKey) // Remove ingredient from list
           recipe.ingredients = newRecipeIngredients
-          return recipe
-        } else { return recipe }
+        }
+        return recipe
       })
-      setRecipes(newRecipes)
-      save(newRecipes)
     }
-
+    // Save updated recipe list to local storage and state
+    setRecipes(newRecipes)
+    save(newRecipes)
   }
 
   const updateRecipe = (recipeKey, ingredientObj, ingredientIndex) => {
     if (ingredientObj.hasSubRecipe) {
-      console.log("adding subrecipe")
+      console.log("adding sub-recipe")
       addSubRecipe(recipeKey, ingredientObj, ingredientIndex)
     } else if (ingredientIndex !== undefined) {
       let newRecipes = recipes.map(recipe => {
