@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import Header from "./components/Header"
-import Content from "./components/Content"
+import Header from "./components/header/Header"
+import Content from "./components/content/Content"
 import { Helmet } from "react-helmet"
 
 function App() {
@@ -115,10 +115,10 @@ function App() {
               let newRecipeIngredients = recipeIngredient.ingredients.filter(ingredient => ingredient.key !== ingredientKey)
               recipeIngredient.ingredients = newRecipeIngredients
             }
-			      return recipeIngredient
+            return recipeIngredient
 		      })
         }
-		    return recipe
+        return recipe
       })
     } else {
       newRecipes = recipes.map(recipe => { // New list of recipes
@@ -134,6 +134,7 @@ function App() {
     save(newRecipes)
   }
 
+  // Function to update a recipe
   const updateRecipe = (recipeKey, ingredientObj, ingredientIndex) => {
     if (ingredientObj.hasSubRecipe) {
       console.log("adding sub-recipe")
@@ -163,7 +164,7 @@ function App() {
   }
 
   const addSubRecipe = (recipeKey, ingredientObj, ingredientIndex) => {
-    if (ingredientIndex !== undefined) {
+    if (ingredientIndex) {
       let newRecipes = recipes.map(recipe => {
         if (recipe.key === recipeKey) {
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].ingredients = ingredientObj.ingredients
@@ -173,10 +174,8 @@ function App() {
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].portionNumber = ingredientObj.portionNumber
           recipe.ingredients[ingredientIndex].ingredients[ingredientObj.subIndex].portionUnit = ingredientObj.portionUnit
           console.log(recipe)
-          return recipe
-        } else {
-          return recipe
         }
+        return recipe
       })
       setRecipes(newRecipes)
       save(newRecipes)

@@ -1,8 +1,8 @@
-import "../styling/Main.css"
-import FamilyMeal from "./FamilyMeal"
-import EntreesSaladsSides from "./EntreesSaladsSides"
-import TitleRight from "./TitleRight"
-import CheckListImage from "./CheckListImage"
+import "./Main.css"
+import FamilyMeal from "../familyMeal/FamilyMeal"
+import EntreesSaladsSides from "../entreeSaladsSides/EntreesSaladsSides"
+import TitleRight from "../titleRight/TitleRight"
+import CheckListImage from "../CheckListImage"
 
 const Main = ({ arrayLocationSettings, isExpanded, deleteIngredient, updateRecipe, deleteRecipe, selectedRecipe, selectModal }) => {
   // useEffect(() => {

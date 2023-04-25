@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from "react"
-import IngredientForm from "./IngredientForm"
-import RecipeForm from "./RecipeForm"
-import SubRecipeForm from "./SubRecipeForm"
-import UpdateNumbersForm from "./UpdateNumbersForm"
+import IngredientForm from "../../../pages/main/IngredientForm"
+import RecipeForm from "../../RecipeForm"
+import SubRecipeForm from "../../SubRecipeForm"
+import UpdateNumbersForm from "../../UpdateNumbersForm"
 
 const JModal = ({ arrayLocation, updateRecipe, recipeKey, setMultiplier, modalState, addRecipe, handleClose }) => {
   const [inputs, setInputs] = useState({type: "entree", amount1: 1, amount2: 1, amount3: 1})

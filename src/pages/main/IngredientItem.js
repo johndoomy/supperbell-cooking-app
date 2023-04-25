@@ -1,10 +1,10 @@
 import { useState, useRef } from "react"
-import UpdatedNumber from "./UpdatedNumber"
-import DeleteIngredientButton from "./DeleteIngredientButton"
+import UpdatedNumber from "../../components/UpdatedNumber"
+import DeleteIngredientButton from "../../components/DeleteIngredientButton"
 import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
-import SubRecipeCreateButton from "./SubRecipeCreateButton"
-import SubRecipe from "./SubRecipe"
+import SubRecipeCreateButton from "../../components/SubRecipeCreateButton"
+import SubRecipe from "../../components/SubRecipe"
 
 const IngredientItem = ({ familyKey, index, arrayLocationSettings, selectModal, deleteIngredient, ingredient, familyRecipe, recipeIndex, selectedRecipe }) => {
     const ingredientRef = useRef()

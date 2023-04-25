@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Main from "./Main"
-import Sidebar from "./Sidebar"
-import JModal from "./JModal"
+import Main from "../../pages/main/main/Main"
+import Sidebar from "../../pages/sidebar/Sidebar"
+import JModal from "./jModal/JModal"
 
 const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateRecipe, addRecipe, deleteRecipe, selectRecipe, selectedRecipe, recipes, toggleNav }) => {
   const [modalState, setModal] = useState("recipe")

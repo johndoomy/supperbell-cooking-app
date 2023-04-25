@@ -1,6 +1,6 @@
-import "../styling/EntreesSaladsSides.css"
-import IngredientForm from "./IngredientForm"
-import IngredientItem from "./IngredientItem"
+import "./EntreesSaladsSides.css"
+import IngredientForm from "../IngredientForm"
+import IngredientItem from "../IngredientItem"
 
 
 const EntreesSaladsSides = ({ arrayLocationSettings, selectModal, deleteIngredient, familyRecipe, index, updateRecipe, selectedRecipe }) => {

@@ -1,8 +1,8 @@
 import { FaRegTrashAlt } from "react-icons/fa"
 
-const DeleteButton = ({ recipeKey, deleteRecipe }) => {
+const DeleteButton = ({ item, deleteFunc }) => {
   return (
-    <span><FaRegTrashAlt onClick={() => deleteRecipe(recipeKey)}/></span>
+    <span><FaRegTrashAlt onClick={() => deleteFunc(item)}/></span>
   )
 }
 

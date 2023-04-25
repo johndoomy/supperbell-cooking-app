@@ -13,7 +13,7 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe, handle
     const handleSubmit = event => {
         event.preventDefault()
         inputs.key = new Date().valueOf()
-        updateRecipe(((familyKey !== undefined) ? familyKey : selectedRecipe.key), inputs, index)
+        updateRecipe((familyKey || selectedRecipe.key), inputs, index)
         setInputs(() => ({unit: "each"}))
         (window.innerWidth > 620) && document.querySelectorAll(".ingredientInputText")[0].focus()
     }
@@ -66,12 +66,10 @@ const IngredientForm = ({ familyKey, index, updateRecipe, selectedRecipe, handle
 
             {/* <input className="addIngredientButton" type="submit" value="Add" /> */}
             <div className="cancelCreate cancelCreateIngredient">
-            <input className="createText" id="createRecipeButton" type="submit" value="Add" /><input type="button" onClick={() => {handleClose1()}} value="Cancel" id="cancelRecipeButton" className="cancelText" />
-        </div>
-
+            <input className="createText" id="createRecipeButton" type="submit" value="Add" />
+            <input type="button" onClick={() => {handleClose1()}} value="Cancel" id="cancelRecipeButton" className="cancelText" />
+            </div>
         </form>
-
-        
     </div>
   )
 }
