@@ -3,7 +3,7 @@ import Main from "../../pages/main/main/Main"
 import Sidebar from "../../pages/sidebar/Sidebar"
 import JModal from "./jModal/JModal"
 
-const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateRecipe, addRecipe, deleteRecipe, selectRecipe, selectedRecipe, recipes, toggleNav }) => {
+const Content = ({ state, isExpanded }) => {
   const [modalState, setModal] = useState("recipe")
   const selectModal = modalType => {
     setModal(modalType)
@@ -16,7 +16,7 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
 
   return (
     <div id="content">
-        <Sidebar 
+        {/* <Sidebar 
           save={save} 
           isExpanded={isExpanded} 
           selectModal={selectModal} 
@@ -40,7 +40,7 @@ const Content = ({ save, isExpanded, deleteIngredient, setMultiplier, updateReci
           recipeKey={selectedRecipe && selectedRecipe.key} 
           setMultiplier={setMultiplier} 
           modalState={modalState} 
-          addRecipe={addRecipe} />
+          addRecipe={addRecipe} /> */}
     </div>
   )
 }

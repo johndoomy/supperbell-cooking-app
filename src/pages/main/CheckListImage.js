@@ -1,4 +1,4 @@
-import checkListImage from '../../../images/checklist.png'
+import checkListImage from '../../images/checklist.png'
 
 const CheckListImage = () => {
   return (

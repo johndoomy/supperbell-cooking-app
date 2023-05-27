@@ -1,10 +1,11 @@
 import "./Header.css"
+
 import { BsList } from "react-icons/bs"
 
-const Header = ({ toggleNav }) => {
+const Header = ({ toggleSidebar }) => {
   return (
     <header className="mainHeader">
-      <BsList onClick={toggleNav} className="hamburgerButton toggleNav" />
+      <BsList onClick={toggleSidebar} className="hamburgerButton toggleNav" />
       <span id="appTitle">SupperBell Cooking App</span>
     </header>
   )

@@ -1,15 +1,26 @@
 import "./Sidebar.css"
-import { useRef, useEffect } from "react"
-import RecipesUl from "./RecipesUl"
+import { useRef, useEffect, useState, useContext } from "react"
 
-const Sidebar = ({ save, isExpanded, recipes, selectRecipe, selectedRecipe, selectModal, toggleNav }) => {
+// Component Imports
+import RecipesUl from "../../components/RecipesUl"
+import CreateMealModal from "../../components/modals/CreateMealModal"
+
+// Utility imports
+import { RecipeContext, MealContext } from "../../utils/Contexts"
+
+const Sidebar = ({ show }) => {
+  // Get the data from recipe and meal contexts created in App.js
+  const recipes = useContext(RecipeContext)
+  const meals = useContext(MealContext)
 
   const sidebarRef = useRef()
 
+  const [showModal, setShowModal] = useState(false)
+
   useEffect(() => {
     const handler = event => {
-      if (!sidebarRef.current.contains(event.target) && isExpanded && window.innerWidth <= 620 && (event.target !== document.querySelector(".hamburgerButton"))) {
-        toggleNav()
+      if (!sidebarRef.current.contains(event.target) && show && window.innerWidth <= 620 && (event.target !== document.querySelector(".hamburgerButton"))) {
+        Array.from(document.getElementsByClassName("ingredient")).forEach(element => { element.classList.toggle("darken") })
       }
     }
     document.addEventListener("mousedown", handler)
@@ -19,48 +30,68 @@ const Sidebar = ({ save, isExpanded, recipes, selectRecipe, selectedRecipe, sele
     }
   })
 
-  const entrees = recipes.filter(recipe => recipe.type === "entree") //these are filtered lists to be passed and sorted to correct categories
-  const salads = recipes.filter(recipe => recipe.type === "salad")
-  const familyMeals = recipes.filter(recipe => recipe.type === "family meal")
-  const sides = recipes.filter(recipe => recipe.type === "side")
+  const entrees = meals.filter(meal => meal.type === "entree") //these are filtered lists to be passed and sorted to correct categories
+  const salads = meals.filter(meal => meal.type === "salad")
+  const familyMeals = meals.filter(meal => meal.type === "family meal")
+  const sides = meals.filter(meal => meal.type === "side")
 
   return (
-    <div ref={sidebarRef} className={isExpanded ? "sidebar is-open" : "sidebar"}>
-      <div onClick={() => { (window.innerWidth <= 620 && toggleNav()); selectModal("recipe"); document.querySelector(".modal").style.display = "block"; (document.querySelector('#recipeInputText') !== null) && document.querySelector('#recipeInputText').focus() }} className="showRecipeModal">
-        <span>+ New Recipe</span>
+    <div ref={sidebarRef} className={"sidebar" + (show ? " is-open" : "")}>
+      <div onClick={() => { setShowModal(true) }} className="showRecipeModal">
+        <span>+ New Meal</span>
+      </div>
+      <div>
+        <p className="sidebarHeading">Meals</p>
+
+        {entrees[0] &&
+          <>
+            <p className="listTitle">Entrees</p>
+            <RecipesUl filteredRecipes={entrees} />
+            {/* <RecipesUl selectedRecipe={selectedRecipe} selectRecipe={selectRecipe} filteredRecipes={entrees} /> */}
+
+            <div className="sidebarUnderline"></div>
+          </>}
+
+        {familyMeals[0] &&
+          <>
+            <p className="listTitle">Family Meals</p>
+            <RecipesUl filteredRecipes={familyMeals} />
+            {/* <RecipesUl selectedRecipe={selectedRecipe} selectRecipe={selectRecipe} filteredRecipes={familyMeals} /> */}
+
+            <div className="sidebarUnderline"></div>
+          </>}
+
+        {salads[0] &&
+          <>
+            <p className="listTitle">Salads</p>
+            <RecipesUl filteredRecipes={salads} />
+            {/* <RecipesUl selectedRecipe={selectedRecipe} selectRecipe={selectRecipe} filteredRecipes={salads} /> */}
+
+            <div className="sidebarUnderline"></div>
+          </>}
+
+        {sides[0] &&
+          <>
+            <p className="listTitle">Sides</p>
+            <RecipesUl filteredRecipes={sides} />
+            {/* <RecipesUl selectedRecipe={selectedRecipe} selectRecipe={selectRecipe} filteredRecipes={sides} /> */}
+
+            <div className="sidebarUnderline"></div>
+          </>}
+
+        <p className="sidebarHeading">Recipes</p>
+
+        {recipes[0] &&
+          <>
+            {/* <RecipesUl selectRecipe={selectedRecipe} selectRecipe={selectRecipe} filteredRecipes={recipes} /> */}
+
+            <div className="sidebarUnderline"></div>
+          </>}
       </div>
 
-      {entrees[0] &&
-        <>
-          <p className="listTitle">Entrees</p>
-          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={entrees} />
-
-          <div className="sideBarUnderline"></div>
-        </>}
-
-      {familyMeals[0] &&
-        <>
-          <p className="listTitle">Family Meals</p>
-          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={familyMeals} />
-
-          <div className="sideBarUnderline"></div>
-        </>}
-
-      {salads[0] &&
-        <>
-          <p className="listTitle">Salads</p>
-          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={salads} />
-
-          <div className="sideBarUnderline"></div>
-        </>}
-
-      {sides[0] &&
-        <>
-          <p className="listTitle">Sides</p>
-          <RecipesUl selectedRecipe={selectedRecipe} toggleNav={toggleNav} selectRecipe={selectRecipe} filteredRecipes={sides} />
-
-          <div className="sideBarUnderline"></div>
-        </>}
+      {showModal ?
+        <CreateMealModal handleClose={setShowModal} />
+        : null}
     </div>
   )
 }

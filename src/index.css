@@ -77,7 +77,7 @@ h3 {
 }
 
 .modal {
-  display: none;
+  display: block;
   position: fixed;
   /* Stay in place */
   z-index: 2;

@@ -10,8 +10,8 @@
     overflow-y: hidden;
     transition: 0.3s;
     padding-top: 24px;
+    border-right: 1px solid lightgrey;
     transform: translateX(-100%);
-
 }
 
 .sidebar.is-open {
@@ -26,7 +26,7 @@
     margin-left: 50px;
 }
 
-.sideBarUnderline {
+.sidebarUnderline {
     margin-left: 8px;
     margin-right: 8px;
     padding: 1px, 161px;
@@ -113,4 +113,11 @@
     .showRecipeModal {
         font-size: 18px;
     }
+}
+
+.sidebarHeading {
+    margin-left: 10px;
+    font-size: 22px;
+    font-style: bold;
+    text-decoration: underline;
 }

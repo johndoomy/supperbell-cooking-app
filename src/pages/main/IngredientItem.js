@@ -1,5 +1,5 @@
 import { useState, useRef } from "react"
-import UpdatedNumber from "../../components/UpdatedNumber"
+import UpdatedNumber from "../../utils/UpdatedNumber"
 import DeleteIngredientButton from "../../components/DeleteIngredientButton"
 import { BsChevronUp } from "react-icons/bs"
 import { BsChevronDown } from "react-icons/bs"
